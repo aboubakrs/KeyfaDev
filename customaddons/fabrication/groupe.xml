@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding= "utf-8"?>
+
+<odoo>
+    <record id="commerciale" model="ir.module.category">
+       <field name="name">Commerciale </field>
+       <field name="sequence">1</field>
+   </record>
+   <!-- Adding a Group to the Group Category -->
+   <record id="group_commerciale" model="res.groups">
+       <field name="name">Groupe Commerciale</field>
+       <field name="commerciale" ref="commerciale"/>
+       <!-- Adding Rights of existing Groups -->
+       <field name="implied_ids"
+              eval="[(4, ref('base.group_system')),
+     (4,ref('sales_team.group_sale_manager'))]"/>
+   </record>
+
+    <record id="mark" model="ir.module.category">
+       <field name="name">Marketing </field>
+       <field name="sequence">1</field>
+   </record>
+   <!-- Adding a Group to the Group Category -->
+   <record id="group_marketing" model="res.groups">
+       <field name="name">Groupe Marketing</field>
+       <field name="mark" ref="mark"/>
+       <!-- Adding Rights of existing Groups -->
+       <field name="implied_ids"
+              eval="[(4, ref('base.group_system')),
+     (4,ref('sales_team.group_sale_manager'))]"/>
+   </record>
+
+</odoo>
