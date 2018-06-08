@@ -1,32 +1,30 @@
 <?xml version="1.0" encoding= "utf-8"?>
 
 <odoo>
+
     <record id="commerciale" model="ir.module.category">
        <field name="name">Commerciale </field>
        <field name="sequence">1</field>
-   </record>
+    </record>
    <!-- Adding a Group to the Group Category -->
    <record id="group_commerciale" model="res.groups">
        <field name="name">Groupe Commerciale</field>
        <field name="commerciale" ref="commerciale"/>
-       <!-- Adding Rights of existing Groups -->
-       <field name="implied_ids"
-              eval="[(4, ref('base.group_system')),
-     (4,ref('sales_team.group_sale_manager'))]"/>
    </record>
 
-    <record id="mark" model="ir.module.category">
-       <field name="name">Marketing </field>
-       <field name="sequence">1</field>
-   </record>
-   <!-- Adding a Group to the Group Category -->
-   <record id="group_marketing" model="res.groups">
-       <field name="name">Groupe Marketing</field>
-       <field name="mark" ref="mark"/>
-       <!-- Adding Rights of existing Groups -->
-       <field name="implied_ids"
-              eval="[(4, ref('base.group_system')),
-     (4,ref('sales_team.group_sale_manager'))]"/>
-   </record>
+
+    <!-- Add a restriction for the field price of product template
+    <record id="product_template_product_form_ref_readonly" model="ir.ui.view">
+    <field name="name">product.template.form.readonly</field>
+    <field name="model">product.template</field>
+    <field name="inherit_id" ref="product.product_template_only_form_view"/>-->
+   <!-- <field name="groups_id" eval="[(6, 0, [ref('base.group_financial') ])]"/>
+    <field name="arch" type="xml">
+        <field name='list_price' position="attributes">
+            <attribute name="readonly">0</attribute>
+        </field>
+    </field>
+</record>-->
+
 
 </odoo>
